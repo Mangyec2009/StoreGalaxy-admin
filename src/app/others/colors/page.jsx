@@ -32,8 +32,8 @@ const Other = () => {
 
   return (
     <>
-      <div className="w-full flex items-start mt-[20px] justify-between">
-        <div className="overflow-x-auto w-[40%]">
+      <div className="w-full flex md:flex-col-reverse items-start mt-[20px] justify-between">
+        <div className="overflow-x-auto w-[40%] md:w-[90%] md:mx-auto md:mt-[20px]">
           <table className="w-[100%] table-auto border-collapse bg-white shadow-md rounded-lg">
             <thead className="bg-purple-600 text-white">
               <tr className="text-left">
@@ -58,14 +58,15 @@ const Other = () => {
                             name=""
                             id=""
                           />
-                        ) : (
+                        ) : <div className='w-[100px] flex items-center justify-between'>
                           <span className="ml-2">{el.colorName}</span>
-                        )}
-                        <div className={`w-[20px] ml-[20px] h-[20px] rounded-[50%]`}
-                          style={{
-                            background: el.colorName.toLowerCase() || "black"
-                          }}
-                        ></div>
+                          <div className={`w-[20px] ml-[20px] h-[20px] rounded-[50%]`}
+                            style={{
+                              background: el.colorName.toLowerCase() || "black"
+                            }}
+                          />
+                        </div>
+                      }
                       </div>
                     </td>
                     <td className="py-3 flex items-center gap-[10px]">
@@ -101,8 +102,8 @@ const Other = () => {
                             <h1 className="">
                               This action cannot be undone. This will permanently delete your account and remove your data from our servers.
                             </h1>
-                            <div className="">
-                              <button
+                            <div className="flex mx-auto items-center gap-[50px]">
+                              <div 
                                 onClick={() => {
                                   deleteColor(el.id);
                                 }}
@@ -110,7 +111,7 @@ const Other = () => {
                                 <Button type="button" variant="destructive">
                                   Delete
                                 </Button>
-                              </button>
+                              </div>
                               <DialogClose asChild>
                                 <Button type="button" variant="secondary">
                                   Close
@@ -127,7 +128,7 @@ const Other = () => {
             </tbody>
           </table>
         </div>
-        <div className="w-[55%] max-w-full h-[250px] shadow-md border border-gray-300 rounded-lg bg-white p-6 flex flex-col justify-center">
+        <div className="w-[55%] md:w-[90%] md:mx-auto max-w-full h-[250px] md:h-[200px] shadow-md border border-gray-300 rounded-lg bg-white p-6 flex flex-col justify-center">
           <h1 className="text-xl font-semibold mb-6">Add new color</h1>
           <form className="flex flex-col items-end" onSubmit={handleSubmit}>
             <input

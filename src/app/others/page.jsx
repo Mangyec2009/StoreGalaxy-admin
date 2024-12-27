@@ -32,8 +32,8 @@ const Other = () => {
 
   return (
     <>
-      <div className="w-[90%] mx-auto flex items-start mt-[20px] justify-between">
-        <div className="overflow-x-auto w-[40%]">
+      <div className="w-[90%] mx-auto flex md:flex-col-reverse items-start mt-[20px] justify-between">
+        <div className="overflow-x-auto w-[50%] md:w-[90%] md:mx-auto bg-red-500">
           <table className="w-[100%] table-auto border-collapse bg-white shadow-md rounded-lg">
             <thead className="bg-purple-600 text-white">
               <tr className="text-left">
@@ -123,7 +123,7 @@ const Other = () => {
           </table>
         </div>
 
-        <div className="w-[45%] max-w-full h-[250px] shadow-md border border-gray-300 rounded-lg bg-white p-6 flex flex-col justify-center">
+        <div className="w-[45%] md:w-[90%] md:mx-auto md:mb-[20px] max-w-full h-[250px] md:h-[200px] shadow-md border border-gray-300 rounded-lg bg-white p-6 flex flex-col justify-center">
           <h1 className="text-xl font-semibold mb-6">Add new brand</h1>
           <form className="flex flex-col items-end" onSubmit={handleSubmit}>
             <input

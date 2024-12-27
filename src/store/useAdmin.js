@@ -31,7 +31,8 @@ export const useAdmin = create((set, get) => ({
     },
     putProd: async (formData, id) => {
         try {
-            await axiosRequest.put(`/Product/update-product?Id=${id}`, formData)
+            await axiosRequest.put(`/Product/update-product?Id=${id}`, formData);
+            get().getProd();
         } catch (error) {
             console.error(error);
         }
@@ -100,6 +101,47 @@ export const useAdmin = create((set, get) => ({
         try {
             await axiosRequest.delete(`/Color/delete-color?id=${id}`);
             get().getColors()
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    category: [],
+    getCategory: async () => {
+        try {
+            let {data} = await axiosRequest("/Category/get-categories");
+            set({category: data.data});
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    postCategory: async (obj) => {
+        try {
+            await axiosRequest.post("/Category/add-category", obj);
+            get().getCategory();
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    putCategory: async (obj) => {
+        try {
+            await axiosRequest.put(`/Category/update-category`, obj)
+        } catch (error) {
+            
+        }
+    },
+    deleteCategory: async (id) => {
+        try {
+            await axiosRequest.delete();
+        } catch (error) {
+            
+        }
+    },
+
+    profile: [],
+    getProfile: async() => {
+        try {
+            let {data} = await axiosRequest("/UserProfile/get-user-profiles");
+            set({profile: data.data});
         } catch (error) {
             console.error(error);
         }

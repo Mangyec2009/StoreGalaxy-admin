@@ -8,7 +8,7 @@ import image3 from '../../../../public/div.MuiBox-root.png';
 export default function Section1() {
   return (
     <div className='flex items-center justify-between mb-[50px]'>
-      <div className='bg-[#fbe8e6] flex items-center p-[15px] w-[200px] rounded-[15px]'>
+      <div className='bg-[#fbe8e6] flex items-center md:flex-col p-[15px] w-[200px] rounded-[15px]'>
         <Image src={image1} alt=''/>
         <div className='ml-[20px]'>
           <p className='text-[13px]'>Sales</p>

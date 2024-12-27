@@ -5,17 +5,24 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { Folder, House, Search, Tag } from 'lucide-react'
 import Link from 'next/link'
+import { Dropdown } from '../Dropdown/Dropdown'
+import { getToken } from '@/utils/decode'
 
 const Header = ({children}) => {
+    let token = getToken();
+    console.log(token);
   return <div className=''>
         <header className='w-[100%] py-[18px] bg-[#5d3da9]'>
             <div className='max-w-[1180px] md:w-[90%] mx-auto flex items-center md:flex-col md:gap-[20px] md:items-start justify-between'>
                 <Image src={"/logo.png"} width={500} height={0} alt='' className='w-[150px]' />
-                <div className='flex items-center'>
+                <div className='flex items-center gap-[5px]'>
                     <Input type="email" className="w-[370px] sm:w-[230px] bg-white text-white" placeholder="Название товара или артукул" />
                         <Button type="submit" className={`bg-[#b98fe6]`}>
                             <Search className="text-[white]" />
                         </Button>
+                        <div className="hidden sm:block">
+                        <Dropdown />
+                        </div>
                 </div>
             </div>
         </header>

@@ -24,9 +24,9 @@ const Apexchart = () => {
     },
   ];
   return <>
-    <div>
+    <div className='flex flex-col items-start gap-[40px]'>
       <h2>Sales Revenue</h2>
-      <ReactApexChart options={options} series={series} type="line" width={800} height={350} />
+      <ReactApexChart options={options} series={series} type="line" className="w-[800px] h-[350px] md:w-[300px] md:h-[100px]" />
     </div>
   </>
 }
