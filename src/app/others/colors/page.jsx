@@ -12,7 +12,6 @@ const Other = () => {
   let [idx, setIdx] = useState(null);
 
   const inputRef = useRef(null);
-
   useEffect(() => {
     getColors();
   }, []);
@@ -22,7 +21,6 @@ const Other = () => {
       inputRef.current?.focus();
     }
   }, [edit]);
-  let litName = null;
   const handleSubmit = (e) => {
     e.preventDefault();
     let name = e.target["name"].value;

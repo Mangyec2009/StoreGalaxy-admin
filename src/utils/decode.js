@@ -1,15 +1,26 @@
-import { jwtDecode } from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode';
 function saveToken(token) {
-	localStorage.setItem('access_token', token)
+	if (typeof window !== 'undefined') {
+		localStorage.setItem('access_token', token)
+	}
+}
+let local = null;
+if (typeof window !== 'undefined') {
+  local = localStorage.getItem('access_token');
 }
 function getToken() {
 	try {
-		return jwtDecode(localStorage.getItem("access_token"))
+		if(local){
+			return jwtDecode(local);
+		}
 	} catch (error) {
 		console.log(error)
 	}
 }
 function destroyToken() {
-	localStorage.removeItem('access_token')
+	let local = null;
+	if (typeof window !== 'undefined') {
+	local = localStorage.removeItem('access_token');
+	}
 }
 export { saveToken, destroyToken, getToken }
